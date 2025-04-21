@@ -1,0 +1,57 @@
+-- Keep a log of any SQL queries you execute as you solve the mystery.
+-- .schema .tables and each table To have an overview about the structure of the tables
+-- SELECT DISTINCT street FROM crime_scene_reports ORDER BY street DESC; To check if Humphrey Street is in the list
+-- SELECT day FROM crime_scene_reports;
+-- SELECT description FROM crime_scene_reports WHERE month = 7 AND day = 28 AND street = 'Humphrey Street'; By watching walkthrough
+-- Description : | Theft of the CS50 duck took place at 10:15am at the Humphrey Street bakery. Interviews were conducted today with three witnesses who were present at the
+-- time – each of their interview transcripts mentions the bakery. |
+--| Littering took place at 16:36. No known witnesses.
+-- SELECT * FROM bakery_security_logs; Checking the time
+-- Looking up for name according to license_plate, then matching passport_number
+-- SELECT passport_number FROM people WHERE license_plate = '13FNH73';
+-- Suspecious Brandon(R3G7486, 10:08, Passport: 7874488539)
+-- Sophia(13FNH73, 10:14, Passport: 3642612721) license plate + enter the bakery
+-- Checking if bouth booked a flight
+-- SELECT flight_id FROM passengers WHERE passport_number = 7874488539; (2, 23, 39)
+-- SELECT flight_id FROM passengers WHERE passport_number = 3642612721; (6, 31, 43)
+-- SELECT * FROM flights; To check how the table looks like
+-- SELECT * FROM flights JOIN passengers ON passengers.flight_id = flights.id WHERE passport_number = 7874488539;
+-- SELECT * FROM flights JOIN passengers ON passengers.flight_id = flights.id WHERE passport_number = 3642612721;
+-- SELECT * FROM airports ; Checking out the airports names matching to the id
+-- SELECT transcript FROM interviews WHERE name = 'Brandon';
+-- SELECT transcript FROM interviews WHERE name = 'Sophia';
+-- Sophia = fiftyville to dallas (28.7) fiftyville to chicago (29.7) fiftyville to la (30.7)
+-- Brandon = Dallas to fiftyville (27.7) fiftyville to san francisco (29.7) Beijing to fiftyville (30.7)
+-- To go some steps back
+-- SELECT * FROM crime_scene_reports WHERE street = 'Humphrey Street';
+-- SELECT * FROM bakery_security_logs WHERE day = 28 AND month = 7;
+-- Checking who was in the bakery by that time.
+-- Getting licenseplate name and passport numbers
+-- 5P2BI95 (Vanessa, 2963008352),94KL13X (Bruce, 5773159633 + Iv ), 6P58WS2 (Barry, 7526138472),4328GD8(Luca, 8496433585),G412CB7(Sofia,1695452385),
+-- L93JTIZ (Iman, 7049073643),322W7JE(Diana, 3592750733 + Iv),0NTHK55(Kelsey,8294398571),1106N58(Taylor,1988161715)
+-- Bruce, Diana, Sophia has given an interview
+-- Bruce flight at 29.7 8:20 from 8 to 4(NYC)
+-- Diana 29.7 16:00 from 8 to 6(Boston), 30.7 16:27 From 7(Dubai) to 8, 30.7 10:19 from 8 to 5(Dallas)
+-- Brandon 27.7 22:37 from 5(Dallas) to 8, 29.7 12:15 from 8 to 11(SanFran), 30.7 12:44 from 2(Beijing) to 8
+-- Sophia 28.7 13:49 from 8 to 5(Dallas), 29.7 9:30 from 8 to 1(Chicago), 30.7 20:21 from 8 to 3(LA)                                                                                                                                                                                                                                                                                                                                                                         |
+-- Bruce Number(367) 555-5533), Diana(770) 555-1861, Brandon (771) 555-6667, Sophia (027) 555-1068
+-- Checking if anyone had a phonecall together, none
+-- SELECT people.name, people.passport_number, atm_transactions. * FROM people JOIN bank_accounts ON people.id = bank_accounts.person_id JOIN atm_transactions ON bank_accounts.account_number = atm_transactions.account_number;
+-- Checking for transactions, Diana and Bruce had a transaction on the same date, same street (26/28.7 Leggett Street). Suspicious
+-- Looking if Diana and Bruce had a phone call SELECT people.name, phone_calls.* FROM people JOIN phone_calls ON people.phone_number = phone_calls.caller OR people.phone_number = phone_calls.receiver;
+-- Looking who is ashley, since diana had many phone calls with her.sc
+-- By looking into the interviews, eugne mentioned that the thief wirthdrawed money on the leggett street. So only one of bouth Diana or bruce withdrawed money.
+-- Called someone who talked to them for elss than a minute in a call, planing to take the earliest flgith out of fiftyville tomorrow, the otherone purchased the flight ticket
+-- SELECT people.name, people.passport_number, atm_transactions.* FROM people JOIN bank_accounts ON people.id = bank_accounts.person_id JOIN atm_transactions ON bank_accounts.account_number = atm_transactions.account_number;
+-- Either Diana or Bruce is the thief, or bouth
+-- Checking for phone calls within 10 minutes of the theft SELECT people.name, phone_calls.* FROM people JOIN phone_calls ON people.phone_number = phone_calls.caller OR people.phone_number = phone_calls.receiver;
+-- Phone call that day, with less than a min, Sofia(51 To Jack, Taylor(43 To James), Diana(49 To Philip), Bruce (45 To Robin)
+-- SELECT people.name, phone_calls.* FROM people JOIN phone_calls ON people.phone_number = phone_calls.caller OR people.phone_number = phone_calls.receiver WHERE name 'Sofia';
+-- SELECT * FROM people WHERE phone_number = '(375) 555-8161'; (updated the seconds to name), Sofia(51 To Jack, Taylor(43 To James), Diana(49 To Philip), Bruce (45 To Robin)
+-- Sofia(51 To Jack (9029462229), Taylor(43 To James(2438825627)), Diana(49 To Philip(3391710505)), Bruce (45 To Robin (NULL))
+-- SELECT * FROM passengers WHERE passport_number ='***' Checking all flights;
+-- Back to the facts, Either diana or bruce is it
+-- SELECT flights.*, passengers.* FROM flights JOIN passengers ON flights.id = passengers.flight_id JOIN people ON passengers.passport_number = people.passport_number WHERE people.name = 'Diana';
+-- -- SELECT flights.*, passengers.* FROM flights JOIN passengers ON flights.id = passengers.flight_id JOIN people ON passengers.passport_number = people.passport_number WHERE people.name = 'Bruce';
+-- Diana was flying back to fiftyville, Bruce to NYC
+-- Robin is his accomplice.

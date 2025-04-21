@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+{% block title %}
+    Portfolio
+{% endblock %}
+{% block main %}
+    <h1>Portfolio</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Symbol</th>
+                <th>Name</th>
+                <th>Shares</th>
+                <th>Price</th>
+                <th>Total Value</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for holding in holdings %}
+                <tr>
+                    <td>{{ holding.symbol }}</td>
+                    <td>{{ holding.companyName }}</td>
+                    <td>{{ holding.shares }}</td>
+                    <td>{{ holding.price | usd }}</td>
+                    <td>{{ holding.total_value | usd }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <h1>
+        <p>Cash: {{ cash | usd }}</p>
+        <p>Grand Total: {{ grand_total | usd }}</p>
+    </h1>
+    {% if cash_before and cash_after %}
+    {% endif %}
+    <table>
+        <td><a href="/buy">Buy Stocks</a></td>
+        <td><a href="/sell">Sell Stocks</a></td>
+    </table>
+{% endblock %}

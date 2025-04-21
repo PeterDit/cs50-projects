@@ -1,0 +1,54 @@
+
+/* Background design using an image and colour */
+body {
+  background-color: Linen;
+  background-image: url('https://img.freepik.com/free-vector/blue-watercolor-mountains-background_23-2149250282.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: right top;
+  background-attachment: scroll;
+  margin: 0;
+  padding-top: 50px; /* Adjust if needed to prevent content overlap */
+}
+
+/* Table size */
+th, td {
+  padding: 5px;
+}
+
+/* Font design */
+h1 {
+  color: white;
+  text-align: center;
+}
+
+p {
+  font-family: verdana;
+  font-size: 15px;
+  text-align: center;
+}
+
+
+/* Design of navbar */
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000; /* Ensure it stays on top */
+}
+
+.navbar a {
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.navbar a:hover {
+  background-color: #ddd;
+  color: black;
+}

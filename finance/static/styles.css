@@ -1,0 +1,78 @@
+/* Size for brand */
+nav .navbar-brand
+{
+    font-size: xx-large;
+}
+
+/* Colors for brand */
+nav .navbar-brand .blue
+{
+    color: #537fbe;
+}
+nav .navbar-brand .red
+{
+    color: #ea433b;
+}
+nav .navbar-brand .yellow
+{
+    color: #f5b82e;
+}
+nav .navbar-brand .green
+{
+    color: #2e944b;
+}
+table {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table td, table th {
+    border: 1px solid #ddd;
+    padding: 2px;
+}
+
+table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+
+table th {
+    padding-top: 20px;
+    padding-bottom: 8px;
+    text-align: center;
+    background-color: #04AA6D;
+    color: white;
+    border-right: 1px solid #ddd;
+}
+
+table th:last-child {
+    border-right: none;
+}
+table td a {
+    text-decoration: none;
+    color: #04AA6D;
+    font-weight: bold;
+    display: block;
+    padding: 10px;
+}
+
+table td:hover {
+    background-color: #bab8b8;
+}
+
+
+h1 {
+    text-align: center;
+    text-transform: uppercase;
+    color: #04AA6D;
+  }
+h2 {
+    text-transform: uppercase;
+    color: #00000;
+    text-decoration-line: underline;
+}
+
+h3 {
+    color: #4f4f4f;
+}

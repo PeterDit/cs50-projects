@@ -1,0 +1,43 @@
+In aboutme.html i used a Bootstrap plugin called collapse which shows a button and once
+its been clicked on, a text appears with further information.
+On the frontpage i implemented a navbar to link the other pages together
+In styles.css you can find the css code to navbar.
+
+
+
+10 distinct HTML tags:
+
+<link>
+<script>
+<meta>
+<div>
+<h1>
+<a>
+<table>
+<tr>
+<th>
+<li>
+
+24 CSS properties:
+
+background-color
+background-image
+background-size
+background-repeat
+background-position
+background-attachment
+margin
+padding-top
+padding
+color
+text-align
+font-family
+font-size
+overflow
+position
+top
+width
+z-index
+float
+display
+text-decoration
