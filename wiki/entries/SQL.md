@@ -1,0 +1,1 @@
+SQL is a language used to manage and query relational databases.
