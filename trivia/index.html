@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+        <script>
+            // TODO: Add code to check answers to questions
+            function checkMultiChoice(event) {
+
+                    // Get the element which triggered the event
+                    let button = event.target;
+
+                    // Check if the element's inner HTML matches expected answer
+                    if (button.innerHTML == 'Big waterfight\'s in the hole country') {
+                        button.style.backgroundColor = 'Green';
+                        button.parentElement.querySelector('.feedback').innerHTML = 'Correct!';
+                    }
+                    else {
+                        button.style.backgroundColor = 'Red';
+                        button.parentElement.querySelector('.feedback').innerHTML = 'Incorrect';
+                    }
+                    }
+
+                    function checkFreeResponse(event) {
+
+                    // Get the element which triggered the event
+                    let button = event.target;
+
+                    // Get the input element corresponding to the button
+                    let input = button.parentElement.querySelector('input');
+
+                    // Check for correct answer
+                    if (input.value === 'Bitcoin') {
+                        input.style.backgroundColor = 'Green';
+                        input.parentElement.querySelector('.feedback').innerHTML = 'Correct!';
+                    }
+                    else {
+                        input.style.backgroundColor = 'Red';
+                        input.parentElement.querySelector('.feedback').innerHTML = 'Incorrect';
+                    }
+                    }
+        </script>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+        <div class="container">
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <h3>What is Thailand new years eve (Songkran) famous for?</h3>
+                <button onclick="checkMultiChoice(event)">A lot of dragons and big fireworks</button>
+                <button onclick="checkMultiChoice(event)">Big waterfight's in the hole country</button>
+                <button onclick="checkMultiChoice(event)">Celebration of light</button>
+                <button onclick="checkMultiChoice(event)">No celebration</button>
+                <button onclick="checkMultiChoice(event)">There are flowers everywhere also known as Flowering new year</button>
+                <p class="feedback"></p>
+                <!-- TODO: Add multiple choice question here -->
+            </div>
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <h3>What is the biggest cryptocurrency</h3>
+                    <input type="text"></input>
+                    <button onclick="checkFreeResponse(event)">Check Answer</button>
+                    <p class="feedback"></p>
+                </form>
+                <!-- TODO: Add free response question here -->
+            </div>
+        </div>
+    </body>
+</html>

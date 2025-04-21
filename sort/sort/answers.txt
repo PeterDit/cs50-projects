@@ -1,0 +1,11 @@
+sort1 uses: bubble sort
+
+How do you know?: it was the fastest in the sorted50000 list.
+
+sort2 uses: merge sort
+
+How do you know?: It was the fastest in the random50000 list, as seen in the videos it is the fastest way of sorting a list.
+
+sort3 uses: selection sort
+
+How do you know?: Since i got the other 2 answers.

@@ -1,0 +1,10 @@
+Question 1:
+With the AVG energy of 0.659, AVG valence of 0.484, AVG danceability of 0.746, i would say the music
+tends to be more positive, it is hard to tell which aura is matching, since it is more positive i would suggest 40% Purple 25 % Yellow 35% Orange
+also from looking into the artists names and knowing many artists who are in the 'Rap' and 'Electronic Dance' genre so thats more of a rebellious type.
+
+Question 2:
+From checking out the AVG valence from single artists i think (since im not know whats the calculation behind the AVG function) is not so accurate.
+By checking out the AVG valence from artist im knowing, i realised rap songs where the artist tend to be more aggressiv and negativ (6ix9ine, Juice WRLD, PostMalone, Drake)
+it is most of the time abbove 0.5 even up to 0.75. Also Billie Eilish who seems to do more sad songs had an AVG from 0.534.
+
